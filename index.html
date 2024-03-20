@@ -4,147 +4,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Checkout Form</title>
     
     <!-- custom css file link  -->
     <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
-
-<div class="container">
-
-    <div class="card-container">
-
-        <div class="front">
-            <div class="image">
-                <img src="image/chip.png" alt="">
-                <img src="image/visa.png" alt="">
-            </div>
-            <div class="card-number-box">################</div>
-            <div class="flexbox">
-                <div class="box">
-                    <span>card holder</span>
-                    <div class="card-holder-name">full name</div>
-                </div>
-                <div class="box">
-                    <span>expires</span>
-                    <div class="expiration">
-                        <span class="exp-month">mm</span>
-                        <span class="exp-year">yy</span>
+    <div id="page" class="site">
+        <div class="container">
+            <div class="outer">
+                <div class="header">
+                    <div class="logo">
+                        <a href="#"><strong>.web</strong>Pay</a>
                     </div>
-                </div>
-            </div>
-        </div>
+                    <div class="time-left">
+                        <time id="time">03:00</time>
+                        <span>time-left</span>
 
-        <div class="back">
-            <div class="stripe"></div>
-            <div class="box">
-                <span>cvv</span>
-                <div class="cvv-box"></div>
-                <img src="image/visa.png" alt="">
+                    </div>
+
+                </div>
+                <section class="payment">
+                    <div class="left">
+                        <form action="" method="post">
+                            <div class="card-number">
+                                <p>Card Number</p>
+                                <span>Enter the 16-digit card number on the card</span>
+                                <div class="card-number-box">
+                                    <input type="text" id="credit-card" autocomplete="off" placeholder="xxxx - xxxx - xxxx - xxxx">
+                                    <span class="cc-logo"></span>
+                                </div>
+                            </div>
+                            <div class="card-holder">
+                                <div class="text">
+                                    <p>Card Name Holder</p>
+                                    <span>Enter name card holder on the card</span>
+                                </div>
+                                <div class="input">
+                                    <input type="text" id="card-name" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="card-cvv">
+                                <div class="text">
+                                    <p>CVV Number</p>
+                                    <span>Enter 3 or 4 digits number on the card</span>
+                                </div>
+                                <div class="input">
+                                    <input type="number" data-maxlength="4" required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
+                                </div>
+                            </div>
+                            <div class="card-expiration">
+                                <div class="text">
+                                    <p>Expiry Date</p>
+                                    <span>Enter the expiration date of the card</span>
+                                </div>
+                                <div class="input">
+                                    <input type="number" id="exp-month" placeholder="MM" data-maxlength="2" required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
+                                    <strong> / </strong>
+                                    <input type="number" id="exp-year" placeholder="YY" data-maxlength="2" required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
+                                </div>
+                            </div>
+                            <button>Pay Now!</button>
+
+                        </form>
+                    </div>
+                    <div class="right">
+                        <div class="card-virtual">
+                            <p class="cc-logo"></p>
+                            <p class="name-holder">John Doe</p>
+                            <p class="chip"></p>
+                            <p class="highlight">
+                                <span class="last-digit" id="card-number">.... .... .... 4567</span>
+                                <span class="expiry">
+                                    <span class="exp-month">11</span>
+                                    <span class="exp-year">2028</span>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="receipt">
+                        <ul>
+                          <li>
+                            <span>Order Number</span>
+                            <span>15205120</span>
+                          </li>
+                          <li>
+                            <span>Product</span>
+                            <span>Pro Ticket</span>
+                          </li>
+                          <li>
+                            <span>Vat (10%)</span>
+                            <span>$50.00</span>
+                          </li>
+                        </ul>
+                        <div class="total">
+                            <p class="price"><strong>1,255</strong> USD</p>
+                            <P>Total you have to pay</P>
+                        </div>
+                    </div>
+                    </div>
+                </section>
             </div>
         </div>
 
     </div>
 
-    <form action="">
-        <div class="inputBox">
-            <span>card number</span>
-            <input type="text" maxlength="16" class="card-number-input">
-        </div>
-        <div class="inputBox">
-            <span>card holder</span>
-            <input type="text" class="card-holder-input">
-        </div>
-        <div class="flexbox">
-            <div class="inputBox">
-                <span>expiration mm</span>
-                <select name="" id="" class="month-input">
-                    <option value="month" selected disabled>month</option>
-                    <option value="01">01</option>
-                    <option value="02">02</option>
-                    <option value="03">03</option>
-                    <option value="04">04</option>
-                    <option value="05">05</option>
-                    <option value="06">06</option>
-                    <option value="07">07</option>
-                    <option value="08">08</option>
-                    <option value="09">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-            </div>
-            <div class="inputBox">
-                <span>expiration yy</span>
-                <select name="" id="" class="year-input">
-                    <option value="year" selected disabled>year</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029">2029</option>
-                    <option value="2030">2030</option>
-                </select>
-            </div>
-            <div class="inputBox">
-                <span>cvv</span>
-                <input type="text" maxlength="4" class="cvv-input">
-            </div>
-        </div>
-        <input type="submit" value="submit" class="submit-btn">
-    </form>
-
-</div>    
-    
 
 
 
 
-
-<script>
-
-document.querySelector('.card-number-input').oninput = () =>{
-    document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
-}
-
-document.querySelector('.card-holder-input').oninput = () =>{
-    document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value;
-}
-
-document.querySelector('.month-input').oninput = () =>{
-    document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value;
-}
-
-document.querySelector('.year-input').oninput = () =>{
-    document.querySelector('.exp-year').innerText = document.querySelector('.year-input').value;
-}
-
-document.querySelector('.cvv-input').onmouseenter = () =>{
-    document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(-180deg)';
-    document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(0deg)';
-}
-
-document.querySelector('.cvv-input').onmouseleave = () =>{
-    document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(0deg)';
-    document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(180deg)';
-}
-
-document.querySelector('.cvv-input').oninput = () =>{
-    document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
-}
-
-</script>
-
-
-
-
-
-
-
+<script src="index.js"></script>
 </body>
 </html>
