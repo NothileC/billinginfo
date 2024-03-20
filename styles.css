@@ -1,3 +1,177 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 
+:root{
+    --main-color: #d90429;
+    --main-lighter-color: #ef233c;
+    --light-color: #8d99ae;
+    --lighter-color: #edf2f4;
+    --dark-color: #2b2d42;
+    --font-smaller: 12px;
+    --font-bigger: 16px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,::before,::after{
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--dark-color);
+    background-color: #f9f5f5;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    list-style: none;
+}
+strong{
+    font-weight: 800;
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+.outer{
+    margin-top: 5em;
+    border-radius: 1.8em;
+    padding: 4em 2em;
+    background-color: white;
+}
+header .logo{
+    font-size: 2em;
+}
+header .logo strong{
+    color: var(--main-lighter-color);
+}
+header .time-left{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    line-height: 1.2;
+}
+
+/*--------seperating payment div side-by-side-------------*/
+.payment, .payment :where(form> div:not(.card-number), .card-exp .input){
+    display: flex;
+    align-items: center;
+}
+/*-------shifting payment div top and bottom-------*/
+.payment{
+    flex-direction: column-reverse;
+    gap: 4em;
+}
+
+/*-------shifting payment div down---------*/
+.payment form > div{
+    margin-bottom: 2.5em;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.payment form > div:not(.card-number) > div{
+    flex: 1 0 50%;
+    margin: 0.5em 0;
+}
+.payment .left p{
+    font-size: var(--font-bigger);
+    font-weight: 700;
+}
+.payment .left span{
+    color: var(--light-color);
+}
+.payment .left input{
+    font-weight: 600;
+    font-size: var(--font-bigger);
+    padding: 0 1em;
+    line-height: 46px;
+    border-radius: 8px;
+    width: 100%;
+    border: 2px solid var(--light-color);
+    outline-color: transparent;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+.payment .left input::placeholder{
+    font-weight: 300;
+    font-family: inherit;
+    letter-spacing: 2px;
+    color: var(--light-color);
+    font-size: var(--font-smaller);
+    opacity: .5;
+}
+.payment .left input:focus{
+    outline-color: var(--main-color);
+    background-color: var(--lighter-color);
+}
+.payment .card-number-box{
+    position: relative;
+    margin-top: 1em;
+}
+.payment .card-number-box input{
+    padding: 0 4em;
+}
+.payment .card-number-input input::placeholder{
+    font-size: inherit;
+}
+.payment .cc-logo{
+    position: absolute;
+    top: 50%;
+    left: 1.2em;
+    margin-top: -10px;
+}
+.payment .cc-logo::before, .payment .cc-logo::after{
+    content: '';
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--main-lighter-color);
+}
+
+
+
+@media  screen and (min-width: 576px) {
+    .outer{
+        padding: 4em;
+    }
+    .payment form > div{
+        flex-direction: row;
+    }
+    .payment form > div .text{
+        padding-right: 1em;
+    }
+}
+
+@media screen and (min-width: 992px){
+    header{
+        max-width: 70%;
+        padding-right: 4em;
+        margin-bottom: 0;
+    }
+    .payment{
+        flex-direction: row;
+        gap: 0;
+    }
+    .payment .left{
+        flex: 1 0 65%;
+        padding-right: 4em;
+    }
+    .payment .right{
+        flex: 1 0 35;
+        align-self: flex-end;
+    }
+}
