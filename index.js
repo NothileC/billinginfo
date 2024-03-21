@@ -113,6 +113,62 @@ input_credit_card = function(input)
     	// reformat onblur just in case (optional)
         format_and_pos(this, false);
     });
+    //append card number to virtual card (show number to card)...................................
+    input.addEventListener('keyup', function() {
+         document.getElementById('card-number').innerHTML = this.value;
+    })
 };
 
 input_credit_card(document.getElementById('credit-card'));
+
+//append card name holder input to virtual card.............................................
+document.getElementById('card-name').addEventListener('keyup', function() {
+    document.querySelector('.name-holder').innerHTML = this.value;
+});
+
+//append expiration month input to virtual card............................................
+document.getElementById('exp-month').addEventListener('keyup', function() {
+    document.querySelector('.exp-month').innerHTML = this.value;
+});
+
+//append expiration year input to virtual card.........................................
+document.getElementById('exp-year').addEventListener('keyup', function() {
+    document.querySelector('.exp-year').innerHTML = this.value;
+});
+
+
+
+//setting up the function for time left!..........................................
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10?  "0" + seconds : seconds;
+
+        //if statement
+        display.textContent = minutes + ":" + seconds;
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000 );
+}
+
+window.onload = function () {
+    let Minutes = 60 * 3,
+    display = document.querySelector('#time');
+    startTimer(Minutes,display);
+};
+
+
+//function to open and close popup...............................................
+let popup = document.getElementById("popup");
+
+function openPopup() {
+    popup.classList.add("open-popup");
+}
+function closePopup() {
+    popup.classList.remove("open-popup");
+}

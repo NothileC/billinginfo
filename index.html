@@ -16,11 +16,11 @@
             <div class="outer">
                 <header>
                     <div class="logo">
-                        <a href="#"><strong>.web</strong>Pay</a>
+                        <a href="#"><strong>.pay</strong>NOW</a>
                     </div>
                     <div class="time-left">
                         <time id="time">03:00</time>
-                        <span>time-left</span>
+                        <span>time-left!</span>
 
                     </div>
 
@@ -65,7 +65,16 @@
                                     <input type="number" id="exp-year" placeholder="YY" data-maxlength="2" required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
                                 </div>
                             </div>
-                            <button>Pay Now!</button>
+
+                            <div class="btn-pay">
+                            <button type="submit" class="btn" onclick="openPopup()">Pay Now!</button>
+                            <div class="popup" id="popup">
+                                <img src="image/check-mark-icon-png.webp" alt=" chack mark image">
+                                <h2>Thank You!</h2>
+                                <p>Your Payment has been received.</p>
+                                <button type="button" onclick="closePopup()">OK</button>
+                            </div>
+                            </div>
 
                         </form>
                     </div>
@@ -79,8 +88,8 @@
                             <p class="highlight">
                                 <span class="last-digit" id="card-number">.... .... .... 4567</span>
                                 <span class="expiry">
-                                    <span class="exp-month">11</span>
-                                    <span class="exp-year">2028</span>
+                                    <span class="exp-month">11/</span>
+                                    <span class="exp-year">28</span>
                                 </span>
                             </p>
                         </div>
@@ -101,7 +110,7 @@
                         </ul>
                         <div class="total">
                             <p class="price"><strong>1,255</strong> USD</p>
-                            <P>Total you have to pay</P>
+                            <P>Total you have to pay!</P>
                         </div>
                     </div>
                     </div>
