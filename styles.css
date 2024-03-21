@@ -64,7 +64,7 @@ header .time-left{
 }
 
 /*--------seperating payment div side-by-side-------------*/
-.payment, .payment :where(form> div:not(.card-number), .card-exp .input){
+.payment, .payment :where(form> div:not(.card-number), .card-expiration .input){
     display: flex;
     align-items: center;
 }
@@ -126,7 +126,7 @@ header .time-left{
 .payment .card-number-input input::placeholder{
     font-size: inherit;
 }
-.payment .cc-logo{
+.payment form .cc-logo{
     position: absolute;
     top: 50%;
     left: 1.2em;
@@ -142,7 +142,111 @@ header .time-left{
     background-color: var(--main-lighter-color);
 }
 
+.payment .cc-logo::after{
+    background-color: #f79e1c;
+    margin-left: -7px;
+    opacity: .75;
+}
+.payment .card-expiration .input{
+    gap: 10%;
+    text-align: center;
+}
+.payment .card-expiration input{
+    text-align: center;
+}
+.payment form button{
+    font-size: var(--font-bigger);
+    font-weight: 600;
+    border: 0;
+    background-color: var(--main-lighter-color);
+    color: white;
+    line-height: 56px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.payment form button:hover{
+    background-color: var(--main-color);
+}
+/*-------right side--------*/
+.payment .right{
+    max-width: 300px;
+    width: 100%;
+}
+.payment .card-virtual{
+    position: relative;
+    margin: 0 2em -5em;
+    padding: 2em;
+    line-height: 2em;
+    font-size: var(--font-bigger);
+    font-weight: 600;
+    color: white;
+    background-color: var(--dark-color);
+    border-radius: 10px;
+    box-shadow: rgb(43 45 66/30%) 0 20px 30px;
+    z-index: 1;
+    overflow: hidden;
+}
+.payment .card-virtual .cc-logo{
+    position: relative;
+    transform: scale(5);
+    text-align: center;
+}
+.payment .card-virtual .name-holder{
+    margin: 4em 0 0;
+}
+.payment .chip{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 0 -1.5em -1.5em;
+    opacity: 0.5;
+}
+.payment .chip img{
+    width: 30px;
+    margin-top: 0.5em;
+}
 
+.payment .card-virtual .highlight{
+    position: relative;
+    height: auto;
+    margin: 2em -2em -2em;
+    background-color: var(--light-color);
+    border-radius: 0 0 10px 10px;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+}
+.payment .right .receipt{
+    position: relative;
+    padding: 8em 2em 2em;
+    border-radius: 10px;
+    background-color: var(--lighter-color);
+}
+.payment .right .receipt ul li{
+    display: flex;
+    justify-content: space-between;
+    line-height: 3em;
+    border-bottom: 1px dotted var(--light-color);
+}
+.payment .right .receipt ul li span:first-child{
+    color: var(--light-color);
+}
+.payment .right .receipt ul li span:last-child{
+    font-weight: 700;
+}
+.payment .right .receipt .total{
+    text-align: right;
+    margin-top: 1em;
+}
+.payment .receipt .total .price{
+    font-size: 1.5em;
+}
+
+
+/*----------responsiveness-----------*/
 
 @media  screen and (min-width: 576px) {
     .outer{
