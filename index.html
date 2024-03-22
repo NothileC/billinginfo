@@ -27,12 +27,12 @@
                 </header>
                 <section class="payment">
                     <div class="left">
-                        <form action="" method="post">
+                        <form action="#" method="post" name="theform">
                             <div class="card-number">
                                 <p>Card Number</p>
                                 <span>Enter the 16-digit card number on the card</span>
                                 <div class="card-number-box">
-                                    <input type="text" id="credit-card" autocomplete="off" placeholder="xxxx - xxxx - xxxx - xxxx">
+                                    <input type="text" id="credit-card" autocomplete="off" onkeyup="checkform()" placeholder="xxxx - xxxx - xxxx - xxxx" required>
                                     <span class="cc-logo"></span>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                                     <span>Enter name card holder on the card</span>
                                 </div>
                                 <div class="input">
-                                    <input type="text" id="card-name" autocomplete="off" required>
+                                    <input type="text" id="card-name" onkeyup="checkform()"  autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="card-cvv">
@@ -51,7 +51,7 @@
                                     <span>Enter 3 or 4 digits number on the card</span>
                                 </div>
                                 <div class="input">
-                                    <input type="number" data-maxlength="4" required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
+                                    <input type="number" data-maxlength="4" required onkeyup="checkform()"  oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
                                 </div>
                             </div>
                             <div class="card-expiration">
@@ -60,19 +60,19 @@
                                     <span>Enter the expiration date of the card</span>
                                 </div>
                                 <div class="input">
-                                    <input type="number" id="exp-month" placeholder="MM" data-maxlength="2" required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
+                                    <input type="number" id="exp-month" placeholder="MM" data-maxlength="2" onkeyup="checkform()"  required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
                                     <strong> / </strong>
-                                    <input type="number" id="exp-year" placeholder="YY" data-maxlength="2" required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
+                                    <input type="number" id="exp-year" placeholder="YY" data-maxlength="2" onkeyup="checkform()"  required oninput="this.value=this.value.slice(0,this.dataset.maxlength)"/>
                                 </div>
                             </div>
 
-                            <div class="btn-pay">
-                            <button type="submit" class="btn" onclick="openPopup()">Pay Now!</button>
+                            <div class="btn-pay" id="btn-pay">
+                            <button type="submit" class="btn" id="openPopup">Pay Now!</button>
                             <div class="popup" id="popup">
-                                <img src="image/check-mark-icon-png.webp" alt=" chack mark image">
+                                <img src="image/check-mark-icon-png.webp" alt=" check mark image">
                                 <h2>Thank You!</h2>
                                 <p>Your Payment has been received.</p>
-                                <button type="button" onclick="closePopup()">OK</button>
+                                <button type="button" id="closePopup">OK</button>
                             </div>
                             </div>
 
@@ -81,15 +81,15 @@
                     <div class="right">
                         <div class="card-virtual">
                             <p class="cc-logo"></p>
-                            <p class="name-holder">John Doe</p>
+                            <p class="name-holder">Name on Card </p>
                             <p class="chip">
                                 <img src="image/chip.png" alt="chip image">
                             </p>
                             <p class="highlight">
                                 <span class="last-digit" id="card-number">.... .... .... 4567</span>
                                 <span class="expiry">
-                                    <span class="exp-month">11/</span>
-                                    <span class="exp-year">28</span>
+                                    <span class="exp-month">00/</span>
+                                    <span class="exp-year">00</span>
                                 </span>
                             </p>
                         </div>

@@ -163,12 +163,38 @@ window.onload = function () {
 };
 
 
-//function to open and close popup...............................................
-let popup = document.getElementById("popup");
+//Event listener to open and close popup...............
+const openPopup = document.getElementById("openPopup");
+const closePopup = document.getElementById("closePopup");
+const popup = document.getElementById("popup");
 
-function openPopup() {
+//click event to add or remove popup
+openPopup.addEventListener("click", () => {
     popup.classList.add("open-popup");
-}
-function closePopup() {
+});
+
+closePopup.addEventListener("click", () => {
     popup.classList.remove("open-popup");
+});
+
+function toggle (){
+    let page = document.getElementById("page");
+    page.classList
 }
+
+//function to enable form submission only when all fields have been filled.........
+//function checkform(){
+    //let f = document.forms['theform'].elements;
+    //let fieldsMustBeFilled = true;
+
+    //for (var i = 0; i < f.length; i++){
+        //if(f[i].value.length == 0)
+        //fieldsMustBeFilled = false;
+    //}
+    //if(fieldsMustBeFilled){
+        //document.getElementById("popup").disabled = false;
+   // }
+    //else{
+       // document.getElementById("popup").disabled = true;
+   // }
+//}
